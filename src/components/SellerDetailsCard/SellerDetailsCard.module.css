@@ -1,0 +1,15 @@
+.sellerCard {
+  transition: all 0.2s ease-in;
+}
+
+.sellerCard:hover {
+  transform: translateY(-5px);
+}
+
+.sellerCardGradient {
+  padding: 1px;
+}
+
+.sellerCard:hover .sellerCardGradient {
+  background: linear-gradient(to right, #ad18c7, #11c4e3);
+}

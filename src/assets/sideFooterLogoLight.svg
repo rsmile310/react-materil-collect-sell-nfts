@@ -1,0 +1,20 @@
+<svg width="90" height="35" viewBox="0 0 90 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="86" height="31" stroke="#FB026A" stroke-width="4"/>
+<path d="M52 13.7397V13H55.5294V24.1781H57.75V14.3151H58.5V25H54.7529V13.7397H52Z" stroke="#090406" stroke-width="0.2"/>
+<path d="M60.4375 12.2469V11.3827H52.7031V10.6914H61.2969V12.9383H56.4531V23.5H57.0781V13.716H62V10H52V12.2469H60.4375Z" stroke="#090406" stroke-width="0.2"/>
+<circle cx="71.5" cy="17.5" r="4.4" stroke="#090406" stroke-width="0.2"/>
+<circle cx="71.5" cy="17.5" r="6.4" stroke="#090406" stroke-width="0.2"/>
+<circle cx="71.5" cy="17.5" r="7.4" stroke="#090406" stroke-width="0.2"/>
+<path d="M46.6617 16.5L46 16L45.9398 10H50V25H48.2857L38.7218 16.3333V24.1667H39.6241V18L40.4361 18.75V25H38V14.3333L48.6466 24.1667H49.0977V10.75H46.6617V16.5Z" stroke="#090406" stroke-width="0.2"/>
+<path d="M48.5 11.375H47.5V18.5L38.2132 10H37L48.5 20.5V11.375Z" stroke="#090406" stroke-width="0.2"/>
+<path d="M36 25H36.9023L36.7059 11.6304L48 22.0652V20.7609L36 10V25Z" stroke="#090406" stroke-width="0.2"/>
+<path d="M32.4 10H30V25H34V10H33.2V24.1667H30.8889L30.7111 10.75H31.6V23.6667H32.4V10Z" stroke="#090406" stroke-width="0.2"/>
+<path d="M11 25L13.383 10L20.3617 22.8453H20.7021L22.6596 19.116L23 20.5249L20.7021 24.5028H20.3617L13.8085 12.4862L11.9362 24.0884H14.234L14.9149 19.5304L15.5106 20.5249L14.9149 25H11Z" stroke="#090406" stroke-width="0.2"/>
+<path d="M13.8333 23.5714H13L14.3333 15L20 25H19L14.75 17.4603L13.8333 23.5714Z" stroke="#090406" stroke-width="0.2"/>
+<path d="M14.8462 10H14L20.0923 21H20.5L22.9692 16.9231L24.0692 25H25L23.3077 14.533L20.4308 19.8077H20.0923L14.8462 10Z" stroke="#090406" stroke-width="0.2"/>
+<path d="M20.4898 18.2873L20 17.4586L24.0816 10H25.7959L28 25H25.551L23.8367 13.3149L24.5714 12.4033L26.2857 24.2541H27.0204L24.9796 10.7459H24.4082L20.4898 18.2873Z" stroke="#090406" stroke-width="0.2"/>
+<mask id="path-15-inside-1_940_11258" fill="white">
+<rect x="5" y="4" width="80" height="27" rx="2"/>
+</mask>
+<rect x="5" y="4" width="80" height="27" rx="2" stroke="#7575F1" stroke-width="5" mask="url(#path-15-inside-1_940_11258)"/>
+</svg>

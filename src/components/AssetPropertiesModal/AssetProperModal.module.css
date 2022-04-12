@@ -1,0 +1,107 @@
+.propertiesCard {
+  position: relative;
+}
+
+.deleteButton {
+  position: relative;
+  margin-top: 5px;
+}
+
+.inputField {
+  background-color: inherit;
+  border: 1px solid #cecece;
+  color: inherit;
+  font-size: 1rem;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.inputField:-webkit-autofill {
+  box-shadow: 0 0 0 30px #171c26 inset !important;
+  -webkit-box-shadow: 0 0 0 30px #171c26 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.modalStyle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  box-shadow: 24px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  border-radius: 16px;
+}
+
+.modalStyleMobile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  box-shadow: 24px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  border-radius: 16px;
+}
+
+.buttonBox {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-right: 8px;
+}
+
+.buttonStyles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.propertiesInputForm {
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.propertiesInputForm::-webkit-scrollbar {
+  width: 3px;
+}
+
+.propertiesInputForm::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.propertiesInputForm::-webkit-scrollbar-thumb {
+  background: linear-gradient(91.95deg, #21bcd7 1.75%, #5ae5fe 98.13%);
+  border-radius: 5px;
+}
+
+/* Mobile */
+.propertiesInputFormMobile {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 1rem;
+}
+
+.propertiesInputFormMobile::-webkit-scrollbar {
+  width: 3px;
+}
+
+.propertiesInputFormMobile::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.propertiesInputFormMobile::-webkit-scrollbar-thumb {
+  background: linear-gradient(91.95deg, #21bcd7 1.75%, #5ae5fe 98.13%);
+  border-radius: 5px;
+}

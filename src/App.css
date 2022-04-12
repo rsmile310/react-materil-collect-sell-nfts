@@ -1,0 +1,106 @@
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.inputField:-webkit-autofill {
+  box-shadow: inherit;
+  -webkit-box-shadow: 0 0 0 30px #171c26 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.inputFieldMobile:-webkit-autofill {
+  box-shadow: inherit;
+  -webkit-box-shadow: 0 0 0 30px #040404 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.tabStyles {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.tabStyles::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tabStylesDark::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.tabStylesLight::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.tabStyles::-webkit-scrollbar-thumb {
+  background: linear-gradient(91.95deg, #21bcd7 1.75%, #5ae5fe 98.13%);
+  border-radius: 5px;
+}
+
+.tabStylesMobile {
+  margin-left: -2rem;
+  height: 200px;
+  overflow-y: scroll;
+  width: 130%;
+}
+
+.tabStylesMobile::-webkit-scrollbar {
+  width: 3px;
+}
+
+.tabStylesMobileDark::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.tabStylesMobileLight::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.tabStylesMobile::-webkit-scrollbar-thumb {
+  background: linear-gradient(91.95deg, #21bcd7 1.75%, #5ae5fe 98.13%);
+  border-radius: 5px;
+}
+
+.readMoreModalText::-webkit-scrollbar {
+  width: 5px;
+}
+
+.readMoreModalText::-webkit-scrollbar-thumb {
+  background: linear-gradient(91.95deg, #21bcd7 1.75%, #5ae5fe 98.13%);
+  border-radius: 5px;
+}
+
+.readMoreModalTextMobile::-webkit-scrollbar {
+  width: 3px;
+}
+
+.readMoreModalTextMobile::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.readMoreModalTextMobile::-webkit-scrollbar-thumb {
+  background: linear-gradient(91.95deg, #21bcd7 1.75%, #5ae5fe 98.13%);
+  border-radius: 5px;
+}
+
+.bidPriceInput:-webkit-autofill {
+  box-shadow: inherit;
+  -webkit-box-shadow: 0 0 0 30px #0c0c0e inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.bidPriceInput::-webkit-outer-spin-button,
+.bidPriceInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bidPriceInput:focus {
+  outline: none;
+  border: 1px solid #e552ff !important;
+}

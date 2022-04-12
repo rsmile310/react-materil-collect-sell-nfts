@@ -1,0 +1,45 @@
+.modalStyle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  width: 500px;
+  padding: 32px;
+}
+
+.modalStyleMobile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #000;
+  border-radius: 10px;
+  width: 80%;
+  padding-right: 16px;
+  padding-left: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.buttonStyle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-radius: 10px;
+  cursor: pointer;
+  padding-left: calc(100% - 90%);
+}
+
+.buttonStyleMobile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-radius: 10px;
+  cursor: pointer;
+  padding-left: calc(100% - 70%);
+}

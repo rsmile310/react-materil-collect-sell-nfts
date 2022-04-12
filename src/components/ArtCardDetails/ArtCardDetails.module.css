@@ -1,0 +1,7 @@
+.artCardDetailsContainer {
+  background-image: url("../../assets/BackgroundWrinkles1.svg"),
+    url("../../assets/BackgroundWrinkles2.svg");
+  background-repeat: no-repeat;
+  background-position: right top, left bottom;
+  z-index: 10000;
+}

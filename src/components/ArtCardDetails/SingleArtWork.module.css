@@ -1,0 +1,237 @@
+.modalStyleWeb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  padding-top: 8px;
+  padding-left: 32px;
+  padding-right: 8px;
+  border-radius: 10px;
+  text-align: justify;
+}
+
+.modalStyleMobile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  padding: 16px;
+  border-radius: 10px;
+  text-align: justify;
+}
+
+.itemDetailsModalTitle {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.readMoreModalText {
+  overflow-y: auto;
+}
+
+.readMoreModalTextMobile {
+  overflow-y: auto;
+}
+
+.readMoreModalText::-webkit-scrollbar {
+  width: 5px;
+}
+
+.readMoreModalText::-webkit-scrollbar-thumb {
+  background: linear-gradient(91.95deg, #21bcd7 1.75%, #5ae5fe 98.13%);
+  border-radius: 5px;
+}
+
+.readMoreModalTextMobile::-webkit-scrollbar {
+  width: 3px;
+}
+
+.readMoreModalTextMobile::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.readMoreModalTextMobile::-webkit-scrollbar-thumb {
+  background: linear-gradient(91.95deg, #21bcd7 1.75%, #5ae5fe 98.13%);
+  border-radius: 5px;
+}
+
+.detailsContainerBox {
+  padding-bottom: 40px;
+  margin-top: 88px;
+}
+
+.topNavigationBox {
+  position: relative;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.topNavigationTypo {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.labelHighLighter {
+  background: linear-gradient(91.95deg, #2175d7 1.75%, #5acdfe 98.13%);
+  border-radius: 4px;
+  width: 30px;
+  height: 24px;
+}
+
+.topNavigationBoxMobile {
+  position: fixed;
+  display: flex;
+  gap: 56px;
+  align-items: center;
+  top: 2%;
+  left: 3%;
+  z-index: 10000;
+}
+
+.artDisplayImage {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  height: 700px;
+  border-radius: 20px;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.detailsContainerContentBox {
+  border-radius: 20px;
+  padding: 2rem;
+  z-index: 10;
+}
+
+.propBox {
+  border-radius: 6px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  border: 1px solid #01d4fa;
+}
+
+.dividerBox {
+  border-color: #8e8e8e;
+}
+
+.singleArtCardInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.avatarBox {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.footerIcons {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.userInteractionBox {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.footerButtonContainer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.gradientButtonClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.detailsContainerMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-top: -96px;
+}
+
+.artDisplayImageMobile {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.userInteractionBoxMobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardFooterMobile {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  margin-top: -16px;
+}
+
+.footerButtonContainerMobile {
+  margin-top: 32px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tabBox {
+  background-image: url("../../assets/BackgroundWrinkles1.svg"),
+    url("../../assets/BackgroundWrinkles2.svg");
+  background-repeat: no-repeat;
+  background-position: right top, left bottom;
+}
+
+.tabBoxContent {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.tabBoxMobile {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}

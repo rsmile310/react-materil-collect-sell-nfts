@@ -1,0 +1,90 @@
+.auctionCardPrevHome {
+  transition: all 0.2s ease-in;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+.auctionCardPrevHome:hover {
+  transform: translateY(-5px);
+}
+
+.auctionCardPrevHome:hover .auctionCardButtonHome {
+  opacity: 1;
+}
+
+.auctionCardButtonHome {
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+
+.auctionCardPrevGradientBorder {
+  padding: 1px;
+  border-radius: 20px;
+}
+
+.auctionCardPrevHome:hover .auctionCardPrevGradientBorder {
+  background: linear-gradient(to right, #ad18c7, #11c4e3);
+}
+
+.auctionCardInnerBox {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 1rem;
+  z-index: 10;
+  cursor: pointer;
+  position: relative;
+}
+
+.displayImage {
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+}
+
+.auctionInfoBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -16px;
+}
+
+.countDownBoxMobile {
+  position: absolute;
+  top: 45%;
+  left: 26%;
+}
+
+.dividerStyles {
+  background-color: #8e8e8e;
+}
+
+.auctionFooterBox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.avatarBox {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatarStyle {
+  height: 30px;
+  width: 30px;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.gradientButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}

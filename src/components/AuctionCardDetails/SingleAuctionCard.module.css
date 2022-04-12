@@ -1,0 +1,239 @@
+.modalStyleWeb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 32px;
+  padding-right: 16px;
+  border-radius: 10px;
+  text-align: justify;
+}
+
+.modalStyleMobile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  padding: 16px;
+  border-radius: 10px;
+  text-align: justify;
+}
+
+.modalBox {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mainBox {
+  padding-bottom: 40px;
+  margin-top: 88px;
+}
+
+.topNavBox {
+  position: relative;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.labelHighLighter {
+  background: linear-gradient(91.95deg, #2175d7 1.75%, #5acdfe 98.13%);
+  border-radius: 4px;
+  width: 30px;
+  height: 24px;
+  margin-left: -24px;
+}
+
+.topNavBoxMobile {
+  position: fixed;
+  display: flex;
+  gap: 56px;
+  align-items: center;
+  top: 2%;
+  left: 3%;
+  z-index: 10000;
+}
+
+.auctionMainImage {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  height: 790px;
+  border-radius: 20px;
+}
+
+.auctionMainContentBox {
+  width: 400px;
+  border-radius: 20px;
+  padding: 2rem;
+  z-index: 10;
+}
+
+.accordionStyles {
+  margin-bottom: 24px;
+}
+
+.propBox {
+  border-radius: 6px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 16px;
+  text-align: center;
+  border: 1px solid #01d4fa;
+}
+
+.propertiesBox {
+  border-radius: 6px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  border: 1px solid #01d4fa;
+}
+
+.dividerStyle {
+  background-color: #8e8e8e;
+}
+
+.auctionInfoBox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.avatarBox {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.auctionInteractionBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.iconStyle {
+  margin-top: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.loveIconBox {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.footerButtonBox {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.bidPriceInput {
+  position: relative;
+  width: 27%;
+  border-radius: 10px;
+  border: 1px solid #e552ff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1.5rem;
+}
+
+.bidPriceInputCaption {
+  position: absolute;
+  /* margin-top: -40px; */
+  margin-left: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: #e552ff;
+}
+
+.bidPriceCurrencyBox {
+  position: absolute;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #040404;
+  font-size: 12px;
+}
+
+.gradientButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.detailsContainerMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  margin-right: -16px;
+  margin-left: -16px;
+}
+
+.auctionMainImageMobile {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.auctionInteractionBoxMobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -32px;
+}
+
+.loveIconBoxMobile {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.auctionInfoBoxMobile {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  margin-top: -16px;
+}
+
+.bidPriceInputBoxMobile {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tabPanelBox {
+  background-image: url("../../assets/BackgroundWrinkles1.svg"),
+    url("../../assets/BackgroundWrinkles2.svg");
+  background-repeat: no-repeat;
+  background-position: right top, left bottom;
+  z-index: 10000;
+}
+
+.tabInfoBox {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

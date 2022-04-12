@@ -1,0 +1,11 @@
+.auctionCardAuction {
+  transition: all 0.2s ease-in;
+}
+
+.auctionCardAuction:hover {
+  transform: translateY(-5px);
+}
+
+.auctionCardAuction:hover .auctionCardGradientBorder {
+  background: linear-gradient(to right, #ad18c7, #11c4e3);
+}

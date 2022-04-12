@@ -1,0 +1,8 @@
+.backdropStyles {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(225deg, #000000 0%, #0675b3 100%);
+  filter: blur(250px);
+  z-index: 20;
+}

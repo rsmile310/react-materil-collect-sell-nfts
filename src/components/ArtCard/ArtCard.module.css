@@ -1,0 +1,64 @@
+.artCard {
+  z-index: 600;
+  transition: all 0.2s ease-in;
+}
+
+.artCard:hover {
+  transform: translateY(-5px);
+}
+
+.gradientBorderBox {
+  padding: 1px;
+  border-radius: 20px;
+}
+
+.artCard:hover .gradientBorderBox {
+  background: linear-gradient(to right, #ad18c7, #11c4e3);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 1rem;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.imageStyle {
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.artCardBody {
+  margin-top: 24px;
+}
+
+.artCardInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.artCardCreator {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.artCardOwner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dividerStyle {
+  background-color: #8e8e8e;
+  margin: 10px 0;
+}
+
+.artCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

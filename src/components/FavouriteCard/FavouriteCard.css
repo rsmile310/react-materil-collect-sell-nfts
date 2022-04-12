@@ -1,0 +1,20 @@
+.auctionCardFav {
+  transition: all 0.2s ease-in;
+}
+
+.auctionCardFav:hover {
+  transform: translateY(-5px);
+}
+
+.auctionCardFav:hover .favouriteCardButton {
+  opacity: 1;
+}
+
+.favouriteCardButton {
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+
+.auctionCardFav:hover .auctionCardFavGradient {
+  background: linear-gradient(to right, #ad18c7, #11c4e3);
+}
