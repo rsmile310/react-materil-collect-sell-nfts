@@ -9,7 +9,8 @@ import TrendingNFTContainer from "./TrendingNFTContainer";
 import TrendingSellerContainer from "./TrendingSellersContainer";
 import { useTheme } from "@emotion/react";
 import HeroBanner from "./HeroBanner";
-import StatsComponent from "../../Utils/StatsComponent/StatsComponent";
+//import StatsComponent from "../../Utils/StatsComponent/StatsComponent";
+import FeaturedNFTContainer from "./FeaturedNFTContainer";
 
 const Home = ({ darkMode }) => {
   const theme = useTheme();
@@ -34,9 +35,9 @@ const Home = ({ darkMode }) => {
             <Box sx={{ mt: 10 }}>
               <HeroBanner isMobile={false} darkMode={darkMode} />
             </Box>
-            {/* Stats */}
-            <Box sx={{ mt: 10, mb: 20 }}>
-              <StatsComponent darkMode={darkMode} />
+            {/* Featured NFTs */}
+            <Box /*sx={{ mt: 10, mb: 20 }}*/>
+              <FeaturedNFTContainer darkMode={darkMode} />
             </Box>
             {/* Live Auctions */}
             <LiveAuctionContainer darkMode={darkMode} />
@@ -76,8 +77,8 @@ const Home = ({ darkMode }) => {
             >
               <HeroBanner isMobile={true} darkMode={darkMode} />
             </Box>
-            {/* Stats */}
-            <StatsComponent darkMode={darkMode} isMobile={true} />
+            {/* Featured NFTs */}
+            <FeaturedNFTContainer darkMode={darkMode} isMobile={true} />
             {/* Live Auctions */}
             <LiveAuctionContainer darkMode={darkMode} />
 

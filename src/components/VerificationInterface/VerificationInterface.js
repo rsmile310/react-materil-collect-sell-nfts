@@ -1,42 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Button,
-  Grid,
-  IconButton,
+  //Grid,
+  //IconButton,
   Stack,
   Typography,
   useMediaQuery,
 } from "@mui/material";
 
 import { Box } from "@mui/system";
-import { styled } from "@mui/material/styles";
+//import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { GradientButtonPrimary } from "../../Utils/GradientButtons/GradientButtons";
 
 // Icons
 import { AiOutlineCloseSquare } from "react-icons/ai";
-import { ImImage } from "react-icons/im";
+//import { ImImage } from "react-icons/im";
 import { MdOutlineSaveAlt } from "react-icons/md";
 
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@emotion/react";
-import { TiTimes } from "react-icons/ti";
+//import { TiTimes } from "react-icons/ti";
 
+/*
 const Input = styled("input")({
   display: "none",
 });
+*/
 
 const KYCInterface = ({ darkMode }) => {
-  const [imageFrontSide, setImageFrontSide] = useState(null);
-  const [imageBackSide, setImageBackSide] = useState(null);
+  //const [imageFrontSide, setImageFrontSide] = useState(null);
+  //const [imageBackSide, setImageBackSide] = useState(null);
 
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+/*
   const handleFrontImageUpload = (e) => {
     setImageFrontSide(URL.createObjectURL(e.target.files[0]));
   };
@@ -44,10 +46,10 @@ const KYCInterface = ({ darkMode }) => {
   const handleBackImageUpload = (e) => {
     setImageBackSide(URL.createObjectURL(e.target.files[0]));
   };
-
+*/
   const handleKycSubmit = (e) => {
     e.preventDefault();
-    navigate("/profile/kyc-pending");
+    navigate("/profile/verification-pending");
   };
 
   return (
@@ -72,7 +74,7 @@ const KYCInterface = ({ darkMode }) => {
               sx={{ px: 5, pt: 1.7 }}
               component="form"
             >
-              {/* Full Name */}
+              {/* User Name */}
               <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
                 <label
                   style={{
@@ -80,15 +82,16 @@ const KYCInterface = ({ darkMode }) => {
                     fontSize: "14px",
                     fontWeight: "500",
                   }}
-                  htmlFor="sellerName"
+                  htmlFor="userName"
                 >
-                  {t("SELLER_NAME")} *
+                  {t("USER_NAME")} *
                 </label>
                 <input
                   className={darkMode ? "inputField" : undefined}
                   type="text"
-                  placeholder={t("KYC_ENTER_SELLER_NAME_HERE")}
-                  name="userFullName"
+                  placeholder={t("USER_NAME")}
+                  name="userName"
+                  id="userName"
                   required
                   style={{
                     fontSize: "14px",
@@ -101,7 +104,67 @@ const KYCInterface = ({ darkMode }) => {
                   }}
                 />
               </Stack>
-              {/* address */}
+              {/* User Email */}
+              <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
+                <label
+                  style={{
+                    color: `${darkMode ? "#ffffff" : "#040404"}`,
+                    fontSize: "14px",
+                    fontWeight: "500",
+                  }}
+                  htmlFor="userEmail"
+                >
+                  {t("YOUR_EMAIL")} *
+                </label>
+                <input
+                  className={darkMode ? "inputField" : undefined}
+                  type="email"
+                  placeholder={t("EMAIL")}
+                  name="userEmail"
+                  id="userEmail"
+                  required
+                  style={{
+                    fontSize: "14px",
+                    border: "1px solid #c4c4c4",
+                    borderRadius: "6px",
+                    padding: "1rem 1.5rem",
+                    color: `${darkMode ? "#ffffff" : "#040404"}`,
+                    backgroundColor: `${darkMode ? "#040404" : "#ffffff"}`,
+                    width: "90%",
+                  }}
+                />
+              </Stack>
+               {/* User Social */}
+               <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
+                <label
+                  style={{
+                    color: `${darkMode ? "#ffffff" : "#040404"}`,
+                    fontSize: "14px",
+                    fontWeight: "500",
+                  }}
+                  htmlFor="userSocial"
+                >
+                  {t("EDIT_PROFILE_ENTER_YOUR_USER_SOCIAL_HERE")} *
+                </label>
+                <input
+                  className={darkMode ? "inputField" : undefined}
+                  type="text"
+                  placeholder={t("USER_SOCIAL")}
+                  name="userSocial"
+                  id="userSocial"
+                  required
+                  style={{
+                    fontSize: "14px",
+                    border: "1px solid #c4c4c4",
+                    borderRadius: "6px",
+                    padding: "1rem 1.5rem",
+                    color: `${darkMode ? "#ffffff" : "#040404"}`,
+                    backgroundColor: `${darkMode ? "#040404" : "#ffffff"}`,
+                    width: "90%",
+                  }}
+                />
+              </Stack>
+              {/* address 
               <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
                 <label
                   style={{
@@ -130,8 +193,8 @@ const KYCInterface = ({ darkMode }) => {
                     resize: "vertical",
                   }}
                 />
-              </Stack>
-              {/* Adhar Card Number */}
+              </Stack>*/}
+              {/* Passport/ID Card Number 
               <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
                 <label
                   style={{
@@ -139,15 +202,15 @@ const KYCInterface = ({ darkMode }) => {
                     fontSize: "14px",
                     fontWeight: "500",
                   }}
-                  htmlFor="adharCardNumber"
+                  htmlFor="IDCardNumber"
                 >
-                  {t("ADHAR_CARD_NUMBER")} *
+                  {t("ID_CARD_NUMBER")} *
                 </label>
                 <input
                   className={darkMode ? "inputField" : undefined}
-                  type="number"
-                  placeholder={t("ENTER_YOUR_ADHARCARD_NUMBER_HERE")}
-                  name="userEmail"
+                  type="text"
+                  placeholder={t("ENTER_YOUR_ID_CARD_NUMBER_HERE")}
+                  name="userIDCard"
                   required
                   style={{
                     fontSize: "14px",
@@ -162,14 +225,14 @@ const KYCInterface = ({ darkMode }) => {
               </Stack>
               <Stack sx={{ my: 6 }}>
                 <label
-                  htmlFor="upoloadAdharCard"
+                  htmlFor="upoloaIDCard"
                   style={{
                     color: `${darkMode ? "#ffffff" : "#040404"}`,
                     fontSize: "14px",
                     fontWeight: "500",
                   }}
                 >
-                  {t("UPLOAD_YOUR_ADHAR_CARD(JPG,PNG,PDF)")} *
+                  {t("UPLOAD_YOUR_ID_CARD(JPG,PNG,PDF)")} *
                 </label>
                 <Box
                   sx={{
@@ -352,7 +415,7 @@ const KYCInterface = ({ darkMode }) => {
                     </Grid>
                   </Grid>
                 </Box>
-              </Stack>
+              </Stack>*/}
               <Box
                 sx={{
                   mt: 8,
@@ -458,7 +521,7 @@ const KYCInterface = ({ darkMode }) => {
             }}
           >
             <Box onSubmit={handleKycSubmit} sx={{ p: 1 }} component="form">
-              {/* Full Name */}
+              {/* User Name */}
               <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
                 <label
                   style={{
@@ -466,15 +529,16 @@ const KYCInterface = ({ darkMode }) => {
                     fontSize: "14px",
                     fontWeight: "500",
                   }}
-                  htmlFor="sellerName"
+                  htmlFor="userName"
                 >
-                  {t("SELLER_NAME")} *
+                  {t("USER_NAME")} *
                 </label>
                 <input
                   className={darkMode ? "inputField" : undefined}
                   type="text"
-                  placeholder={t("KYC_ENTER_SELLER_NAME_HERE")}
-                  name="userFullName"
+                  placeholder={t("USER_NAME")}
+                  name="userName"
+                  id="userName"
                   required
                   style={{
                     fontSize: "14px",
@@ -486,7 +550,65 @@ const KYCInterface = ({ darkMode }) => {
                   }}
                 />
               </Stack>
-              {/* adress */}
+              {/* User Email */}
+              <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
+                <label
+                  style={{
+                    color: `${darkMode ? "#ffffff" : "#040404"}`,
+                    fontSize: "14px",
+                    fontWeight: "500",
+                  }}
+                  htmlFor="userEmail"
+                >
+                  {t("YOUR_EMAIL")} *
+                </label>
+                <input
+                  className={darkMode ? "inputField" : undefined}
+                  type="email"
+                  placeholder={t("EMAIL")}
+                  name="userEmail"
+                  id="userEmail"
+                  required
+                  style={{
+                    fontSize: "14px",
+                    border: "1px solid #c4c4c4",
+                    borderRadius: "6px",
+                    padding: "1rem 1.5rem",
+                    color: `${darkMode ? "#ffffff" : "#040404"}`,
+                    backgroundColor: `${darkMode ? "#040404" : "#ffffff"}`,
+                  }}
+                />
+              </Stack>
+              {/* User Social */}
+              <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
+                <label
+                  style={{
+                    color: `${darkMode ? "#ffffff" : "#040404"}`,
+                    fontSize: "14px",
+                    fontWeight: "500",
+                  }}
+                  htmlFor="userSocial"
+                >
+                  {t("EDIT_PROFILE_ENTER_YOUR_USER_SOCIAL_HERE")} *
+                </label>
+                <input
+                  className={darkMode ? "inputField" : undefined}
+                  type="text"
+                  placeholder={t("USER_SOCIAL")}
+                  name="userSocial"
+                  id="userSocial"
+                  required
+                  style={{
+                    fontSize: "14px",
+                    border: "1px solid #c4c4c4",
+                    borderRadius: "6px",
+                    padding: "1rem 1.5rem",
+                    color: `${darkMode ? "#ffffff" : "#040404"}`,
+                    backgroundColor: `${darkMode ? "#040404" : "#ffffff"}`,
+                  }}
+                />
+              </Stack>
+              {/* adress 
               <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
                 <label
                   style={{
@@ -513,23 +635,23 @@ const KYCInterface = ({ darkMode }) => {
                     resize: "vertical",
                   }}
                 />
-              </Stack>
-              {/* Adhar Card Number */}
+              </Stack>*/}
+              {/* Passport/ID Card Number 
               <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
                 <label
                   style={{
                     color: `${darkMode ? "#ffffff" : "#040404"}`,
                     fontSize: "14px",
                   }}
-                  htmlFor="adharCardNumber"
+                  htmlFor="IDCardNumber"
                 >
-                  {t("ADHAR_CARD_NUMBER")} *
+                  {t("ID_CARD_NUMBER")} *
                 </label>
                 <input
                   className={darkMode ? "inputField" : undefined}
-                  type="number"
-                  placeholder={t("ENTER_YOUR_ADHARCARD_NUMBER_HERE")}
-                  name="userEmail"
+                  type="text"
+                  placeholder={t("ENTER_YOUR_ID_CARD_NUMBER_HERE")}
+                  name="userIDCard"
                   required
                   style={{
                     fontSize: "14px",
@@ -543,13 +665,13 @@ const KYCInterface = ({ darkMode }) => {
               </Stack>
               <Stack sx={{ my: 3 }}>
                 <label
-                  htmlFor="upoloadAdharCard"
+                  htmlFor="upoloadIDCard"
                   style={{
                     color: `${darkMode ? "#ffffff" : "#040404"}`,
                     fontSize: "14px",
                   }}
                 >
-                  {t("UPLOAD_YOUR_ADHAR_CARD(JPG,PNG,PDF)")} *
+                  {t("UPLOAD_YOUR_ID_CARD(JPG,PNG,PDF)")} *
                 </label>
                 <Box
                   sx={{
@@ -729,7 +851,7 @@ const KYCInterface = ({ darkMode }) => {
                     </Grid>
                   </Grid>
                 </Box>
-              </Stack>
+              </Stack>*/}
               <Box
                 sx={{
                   display: "flex",

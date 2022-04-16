@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {
-  Button,
-  Stack,
+ // Button,
+ // Stack,
   Switch,
   Typography,
   useMediaQuery,
@@ -9,23 +9,23 @@ import {
 import { Box } from "@mui/system";
 
 // Icons
-import { HiCubeTransparent } from "react-icons/hi";
-import { FiDownload } from "react-icons/fi";
+//import { HiCubeTransparent } from "react-icons/hi";
+//import { FiDownload } from "react-icons/fi";
 
 // Gradient Button
-import { GradientButtonPrimary } from "../../Utils/GradientButtons/GradientButtons";
+//import { GradientButtonPrimary } from "../../Utils/GradientButtons/GradientButtons";
 
 // Image
-import KYCApprovedImage from "../../assets/kycApprovedImg.svg";
+import KYCPendingImg from "../../assets/kycPendingImg.svg";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
 
-const KYCApproved = ({ darkMode }) => {
-  const [checkedSwitch, setCheckedSwitch] = React.useState(true);
+const KYCPending = ({ darkMode }) => {
+  const [checkedSwitch, setCheckedSwitch] = React.useState(false);
 
-  const { t } = useTranslation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -35,8 +35,8 @@ const KYCApproved = ({ darkMode }) => {
   };
 
   useEffect(() => {
-    if (!checkedSwitch) {
-      navigate("/profile/kyc-pending");
+    if (checkedSwitch) {
+      navigate("/profile/verification-approved");
     }
   }, [checkedSwitch, navigate]);
 
@@ -53,7 +53,7 @@ const KYCApproved = ({ darkMode }) => {
             alignItems: "center",
           }}
         >
-          <Box sx={{ p: 4, display: "flex", alignItems: "center" }}>
+          <Box sx={{ p: 4, display: "flex" }}>
             <Box>
               <Typography
                 sx={{ textTransform: "uppercase", fontSize: "24px", mb: 5 }}
@@ -61,16 +61,16 @@ const KYCApproved = ({ darkMode }) => {
                 component="h5"
                 color="secondary"
               >
-                {t("KYC_APPROVED")}
+                {t("KYC_IN_PROGRESS")}
               </Typography>
               <Typography variant="body2" component="p" sx={{ mb: 6 }}>
-                {t("KYC_APPROVED_INFO")}
+                {t("KYC_PROGRESS_INFO")}
               </Typography>
-              <Stack direction="row" spacing={2} sx={{ mt: 7 }}>
+              {/*<Stack direction="row" spacing={2} sx={{ mt: 7 }}>
                 <Button
-                  disableElevation
                   variant="contained"
                   color="black"
+                  disableElevation
                   sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -102,18 +102,12 @@ const KYCApproved = ({ darkMode }) => {
                     {t("NAV_EXPLORE")}
                   </Typography>
                 </GradientButtonPrimary>
-              </Stack>
+              </Stack>*/ }
             </Box>
             <Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  mt: -2,
-                  mb: -5,
-                }}
-              >
+              <Box sx={{ display: "flex", justifyContent: "flex-end", mt: -2 }}>
                 <Switch
+                  color="warning"
                   sx={{
                     backgroundColor: `${darkMode ? "#171c26" : "#fff2f8"}`,
                     borderRadius: "4px",
@@ -123,7 +117,7 @@ const KYCApproved = ({ darkMode }) => {
                   inputProps={{ "aria-label": "controlled" }}
                 />
               </Box>
-              <img src={KYCApprovedImage} alt="KYC Pending Illustration" />
+              <img src={KYCPendingImg} alt="KYC Pending Illustration" />
             </Box>
           </Box>
         </Box>
@@ -136,8 +130,8 @@ const KYCApproved = ({ darkMode }) => {
             height: "100%",
             display: "flex",
             alignItems: "center",
-            position: "relative",
             p: 3,
+            position: "relative",
           }}
         >
           <Box
@@ -160,38 +154,32 @@ const KYCApproved = ({ darkMode }) => {
                 }`,
               }}
             >
-              {t("SETTINGS_KYC_APPROVED")}
+              {t("SETTINGS_KYC_PENDING")}
             </Typography>
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column-reverse",
-              alignItems: "center",
-            }}
-          >
+          <Box sx={{ display: "flex", flexDirection: "column-reverse", pb: 3 }}>
             <Box>
               <Typography
                 sx={{
                   textTransform: "uppercase",
+                  textAlign: "center",
                   mt: 3,
                   mb: 2,
-                  textAlign: "center",
                 }}
                 variant="h6"
                 component="h5"
                 color="secondary"
               >
-                {t("KYC_APPROVED")}
+                {t("KYC_IN_PROGRESS")}
               </Typography>
               <Typography variant="body2" component="p" sx={{ mb: 2 }}>
-                {t("KYC_APPROVED_INFO")}
+                {t("KYC_PROGRESS_INFO")}
               </Typography>
-              <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
+              {/*<Stack direction="row" spacing={2} sx={{ mt: 4 }}>
                 <Button
-                  disableElevation
                   variant="contained"
                   color="black"
+                  disableElevation
                   sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -216,19 +204,19 @@ const KYCApproved = ({ darkMode }) => {
                     gap: 2,
                   }}
                 >
-                  <Typography component="span" color="#ffffff">
+                  <Typography component="span" color="secondary">
                     <HiCubeTransparent />
                   </Typography>
-                  <Typography variant="body2" color="#ffffff">
+                  <Typography variant="body2" color="secondary">
                     {t("NAV_EXPLORE")}
                   </Typography>
                 </GradientButtonPrimary>
-              </Stack>
+              </Stack>*/}
             </Box>
             <Box>
               <img
                 style={{ width: "90%", display: "block", margin: "0 auto" }}
-                src={KYCApprovedImage}
+                src={KYCPendingImg}
                 alt="KYC Pending Illustration"
               />
             </Box>
@@ -239,4 +227,4 @@ const KYCApproved = ({ darkMode }) => {
   );
 };
 
-export default KYCApproved;
+export default KYCPending;

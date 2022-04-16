@@ -4,8 +4,7 @@ import { Box } from "@mui/system";
 import { Button, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import { BiSort } from "react-icons/bi";
 import { MdTune } from "react-icons/md";
-import { MdHistory } from "react-icons/md";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { MdHistory, MdKeyboardArrowDown } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -18,34 +17,59 @@ const filterTabs = [
   },
   {
     id: 2,
+    text: "FILTER_TAB_AVA",
+    path: "?type=avatars",
+  },
+  {
+    id: 3,
     text: "FILTER_TAB_ART",
     path: "?type=art",
   },
   {
-    id: 3,
-    text: "FILTER_TAB_MUSIC",
-    path: "?type=music",
-  },
-  {
     id: 4,
-    text: "FILTER_TAB_POSTER",
-    path: "?type=poster",
+    text: "FILTER_TAB_COLL",
+    path: "?type=Collectibles",
   },
   {
     id: 5,
-    text: "FILTER_TAB_SIGNATURE",
-    path: "?type=signature",
+    text: "FILTER_TAB_VIRTUALW",
+    path: "?type=virtual-worlds",
   },
   {
     id: 6,
+    text: "FILTER_TAB_GAMING",
+    path: "?type=gaming",
+  },
+  {
+    id: 7,
     text: "FILTER_TAB_MEMES",
     path: "?type=memes",
   },
   {
-    id: 7,
-    text: "FILTER_TAB_aaa",
-    path: "?type=aaa",
-  }
+    id: 8,
+    text: "FILTER_TAB_VIRTUALF",
+    path: "?type=virtual-fashion",
+  },
+  {
+    id: 9,
+    text: "FILTER_TAB_MUSIC",
+    path: "?type=music",
+  },
+  {
+    id: 10,
+    text: "FILTER_TAB_PICS",
+    path: "?type=pictures",
+  },
+  {
+    id: 11,
+    text: "FILTER_TAB_VID",
+    path: "?type=videos",
+  },
+  {
+    id: 12,
+    text: "FILTER_TAB_OTHER",
+    path: "?type=other",
+  },
 ];
 
 const StyledMenu = styled((props) => (
@@ -63,6 +87,9 @@ const StyledMenu = styled((props) => (
   />
 ))(({ theme }) => ({
   "& .MuiPaper-root": {
+    // '::-webkit-scrollbar' :{
+    //   width: '10px'
+    // },
     borderRadius: 6,
     marginTop: theme.spacing(1),
     minWidth: 140,
@@ -217,15 +244,15 @@ const FilterTab = ({ darkMode }) => {
 
         <Box>
           <Button
-            id="demo-customized-button"
-            aria-controls={open ? "demo-customized-menu" : undefined}
+            id="long-button"
+            aria-controls={open ? 'long-menu' : undefined}
+            aria-expanded={open ? 'true' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
             variant="contained"
             disableElevation
             onClick={handleClick}
             style={{ textTransform: "capitalize" }}
-            endIcon={<KeyboardArrowDownIcon 
+            endIcon={<MdKeyboardArrowDown 
             />}
           >
           {selMenu}

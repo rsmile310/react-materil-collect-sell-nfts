@@ -77,7 +77,7 @@ const Auction = ({ darkMode }) => {
                 {t("LIVE_AUCTIONS")}
               </Typography>
             </Button>
-            <Button
+                      {/* <Button
               color="secondary"
               onClick={() => navigate("/auction?type=past")}
               sx={{ textTransform: "capitalize" }}
@@ -97,7 +97,7 @@ const Auction = ({ darkMode }) => {
               >
                 {t("PAST_AUCTIONS")}
               </Typography>
-            </Button>
+            </Button> */}
           </Box>
         ) : (
           <Box sx={{ mt: -8 }}>

@@ -4,7 +4,8 @@ import { Avatar, IconButton, Typography, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
 
 // Avatar
-import UserAvatar from "../../assets/userProfileAvatar.png";
+import UserAvatar from "../../assets/genzers-mainLogo-test2.png";
+
 
 import { GradientButtonPrimary } from "../../Utils/GradientButtons/GradientButtons";
 
@@ -18,10 +19,10 @@ import { useTheme } from "@emotion/react";
 const userInformation = [
   {
     id: "1",
-    userFullName: "Rajesh Verma",
-    userName: "Rverma",
-    userEmail: "rajeshvarma@gmail.com",
-    userMobileNumber: "+91-8091876468",
+    userFullName: "GenZers Team",
+    userName: "GenZers",
+    userEmail: "hello@genzers.io",
+    userMobileNumber: "",
   },
 ];
 
@@ -151,7 +152,7 @@ const ProfileInterface = ({ darkMode }) => {
                       >
                         {ui.userEmail}
                       </Typography>
-                      <Typography
+                          { /* <Typography
                         sx={{ fontWeight: 200, fontSize: "12px" }}
                         variant="body2"
                         component="p"
@@ -164,7 +165,7 @@ const ProfileInterface = ({ darkMode }) => {
                         sx={{ mb: 2, mt: 0.5 }}
                       >
                         {ui.userMobileNumber}
-                      </Typography>
+                      </Typography>*/}
                     </Box>
                   ))}
                 </Box>

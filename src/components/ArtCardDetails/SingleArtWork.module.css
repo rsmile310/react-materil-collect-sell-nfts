@@ -90,7 +90,8 @@
 .topNavigationBoxMobile {
   position: fixed;
   display: flex;
-  gap: 56px;
+  /*gap: 56px;*/
+  gap: 10px;
   align-items: center;
   top: 2%;
   left: 3%;

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useEffect } from "react";
-
 // Material UI
 import { ThemeProvider } from "@emotion/react";
 import { Box, useMediaQuery } from "@mui/material";
+
 
 // React Router
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -22,12 +22,12 @@ import Footer from "./components/Footer/Footer";
 import UserProfile from "./Pages/UserProfile/UserProfile";
 import TrendingCreators from "./Pages/TrendingCreators/TrendingCreators";
 import ProfileInterface from "./components/ProfileInterface/ProfileInterface";
-import KYCInterface from "./components/KYCInterface/KYCInterface";
+import KYCInterface from "./components/VerificationInterface/VerificationInterface";
 import LanguageInterface from "./components/LanguageInterface/LanguageInterface";
 import ThemeInterface from "./components/ThemeInterface/ThemeInterface";
 import EditProfile from "./components/ProfileInterface/EditProfile";
-import KYCPending from "./components/KYCInterface/KYCPending";
-import KYCApproved from "./components/KYCInterface/KYCApproved";
+import KYCPending from "./components/VerificationInterface/VerificationPending";
+import KYCApproved from "./components/VerificationInterface/VerificationApproved";
 import TermsAndCondition from "./Pages/Terms&Condition/TermsAndCondition";
 import FAQ from "./Pages/FAQ/FAQ";
 import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
@@ -37,12 +37,32 @@ import DummyUserProfile from "./Pages/DummyUser/DummyUserProfile";
 import AuctionCardDetails from "./components/AuctionCardDetails/AuctionCardDetails";
 import CreatorsDetails from "./Pages/CreatorsDetails/CreatorsDetails";
 import AnimatedLoader from "./Utils/AnimatedLoader/AnimatedLoader";
+import TrendingNFTs from "./Pages/TrendingNFTs/TrendingNFTs";
+import Ranking from "./Pages/Ranking/Ranking";
+import UserRegister from "./Pages/UserRegister/UserRegister";
+import Disclaimer from "./Pages/Disclaimer/Disclaimer";
+import Affiliates from "./Pages/Affiliates/Affiliates";
+import Merchandise from "./Pages/Merchandise/Merchandise";
+import UserLogin from "./Pages/UserLogin/UserLogin";
+import ReferCreators from "./Pages/ReferCreators/ReferCreators";
+import ReferBuyers from "./Pages/ReferBuyers/ReferBuyers";
+import Assets from "./Pages/Assets/Assets";
 
 import "./App.css";
 
+//MDB
+import React from "react";
+import * as Realm from "realm-web";
+const APP_ID = "data-qewhf";
+const app = new Realm.App({id: APP_ID});
+
+
+
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
-  const { customTheme } = useCustomTheme(darkMode);
+    const [darkMode, setDarkMode] = useState(false);
+    const { customTheme } = useCustomTheme(darkMode);
+    //MDB
+    const [user, setUser] = React.useState(app.currentUser);
 
   const [showApp, setShowApp] = useState(false);
 
@@ -70,7 +90,6 @@ function App() {
       setDarkMode(false);
     }
   };
-
   useEffect(() => {
     const theme = localStorage.getItem("theme");
 
@@ -111,6 +130,26 @@ function App() {
                     element={<ArtCardDetails darkMode={darkMode} />}
                   />
                   <Route
+                    path="/disclaimer"
+                    element={<Disclaimer darkMode={darkMode} />}
+                  />
+                  <Route
+                    path="/trending-sellers"
+                    element={<TrendingSellers darkMode={darkMode} />}
+                  />
+                  <Route
+                    path="/affiliates"
+                    element={<Affiliates darkMode={darkMode} />}
+                  />
+                  <Route
+                    path="/login"
+                    element={<UserLogin darkMode={darkMode} />}
+                  />
+                  <Route
+                    path="/merchandise"
+                    element={<Merchandise darkMode={darkMode} />}
+                  />
+                  <Route
                     path="/auction/:id"
                     element={<AuctionCardDetails darkMode={darkMode} />}
                   />
@@ -119,8 +158,16 @@ function App() {
                     element={<Favourites darkMode={darkMode} />}
                   />
                   <Route
-                    path="/trending-sellers"
-                    element={<TrendingSellers darkMode={darkMode} />}
+                    path="/profile/favourites"
+                    element={<Favourites darkMode={darkMode} />}
+                  />
+                  <Route
+                    path="/profile/assets"
+                    element={<Assets darkMode={darkMode} />}
+                  />
+                  <Route
+                    path="/trending-nfts"
+                    element={<TrendingNFTs darkMode={darkMode} />}
                   />
                   <Route
                     path="/trending-sellers/:id"
@@ -135,6 +182,14 @@ function App() {
                     element={<CreateAssets darkMode={darkMode} />}
                   />
                   <Route
+                    path="/ranking"
+                    element={<Ranking darkMode={darkMode} />}
+                  />
+                  <Route
+                    path="/register"
+                    element={<UserRegister darkMode={darkMode} />}
+                  />
+                  <Route
                     path="/profile"
                     element={<UserProfile darkMode={darkMode} />}
                   >
@@ -147,15 +202,15 @@ function App() {
                       element={<EditProfile darkMode={darkMode} />}
                     />
                     <Route
-                      path="kyc"
+                      path="verification"
                       element={<KYCInterface darkMode={darkMode} />}
                     />
                     <Route
-                      path="kyc-pending"
+                      path="verification-pending"
                       element={<KYCPending darkMode={darkMode} />}
                     />
                     <Route
-                      path="kyc-approved"
+                      path="verification-approved"
                       element={<KYCApproved darkMode={darkMode} />}
                     />
                     <Route
@@ -167,7 +222,7 @@ function App() {
                       element={
                         <ThemeInterface
                           darkMode={darkMode}
-                          setDarkMode={setDarkMode}
+                          //setDarkMode={setDarkMode}
                           handleDarkThemeSwitch={handleDarkThemeSwitch}
                           handleLightThemeSwitch={handleLightThemeSwitch}
                         />
@@ -181,6 +236,14 @@ function App() {
                   <Route
                     path="/trending-creators/:id"
                     element={<CreatorsDetails darkMode={darkMode} />}
+                  />
+                   <Route
+                    path="/profile/refer-creators"
+                    element={<ReferCreators darkMode={darkMode} />}
+                  />
+                   <Route
+                    path="/profile/refer-buyers"
+                    element={<ReferBuyers darkMode={darkMode} />}
                   />
                   <Route
                     path="/privacy-policy"

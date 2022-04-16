@@ -17,25 +17,30 @@ import {
   BsChevronDown,
   BsChevronUp,
   BsQuestionOctagonFill,
-  BsFillStarFill,
-  BsLightbulbFill,
-  BsFillBookmarkFill,
   BsGearFill,
+  BsLightningFill,
+  BsCashCoin,
+  BsTrophyFill,
+  BsBasket2Fill,
+  BsInfoCircle,
+  BsFillBookmarkFill,
+  BsChatTextFill,
 } from "react-icons/bs";
+import { IoFlame } from "react-icons/io5";
 import { RiInstagramLine, RiTwitterFill } from "react-icons/ri";
 import { MdLock } from "react-icons/md";
-import { IoPersonSharp, IoLanguage } from "react-icons/io5";
-import { IoIosSwitch } from "react-icons/io";
-import { AiFillIdcard } from "react-icons/ai";
 import { CgLoadbarDoc } from "react-icons/cg";
-
+import { GoLaw } from "react-icons/go";
+import { IoPersonSharp, IoDiamondSharp } from "react-icons/io5";
+import { HiSpeakerphone } from "react-icons/hi";
+import { IoIosSwitch } from "react-icons/io";
 // Modules
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Logos
-import SideFooterLogoLight from "../../assets/sideFooterLogoLight.svg";
-import SideFooterLogoDark from "../../assets/sideFooterLogoDark.svg";
+import SideFooterLogoLight from "../../assets/genzers-mainLogo-test2.png";
+import SideFooterLogoDark from "../../assets/genzers-mainLogo-test2.png";
 
 // Profile sidemenu content
 const profileSideMenu = [
@@ -47,42 +52,64 @@ const profileSideMenu = [
   },
   {
     id: 2,
-    name: "SETTINGS_KYC",
-    icon: <AiFillIdcard />,
-    path: "/profile/kyc",
+    name: "SETTINGS_USER_ASSETS",
+    icon: <IoDiamondSharp />,
+    path: "/profile/assets",
   },
   {
     id: 3,
-    name: "SETTINGS_LANGUAGE",
-    icon: <IoLanguage />,
-    path: "/profile/language",
+    name: "SETTINGS_USER_FAVOURITES",
+    icon: <BsFillBookmarkFill />,
+    path: "/profile/favourites?type=nft-bookmark",
   },
   {
     id: 4,
+    name: "SETTINGS_RB",
+    icon: <BsChatTextFill />,
+    path: "/profile/refer-buyers",
+  },
+  {
+    id: 5,
+    name: "SETTINGS_RC",
+    icon: <HiSpeakerphone />,
+    path: "/profile/refer-creators",
+  },
+  {
+    id: 6,
     name: "SETTINGS_THEME",
     icon: <IoIosSwitch />,
     path: "/profile/theme",
   },
+];
+
+const profileSideMenu2 = [
   {
-    id: 5,
+    id: 1,
     name: "FOOTER_LINK_FAQS",
     icon: <BsQuestionOctagonFill />,
     path: "/frequently-asked-questions",
   },
   {
-    id: 6,
-    name: "FOOTER_LINK_PRIVACY_POLICY",
-    icon: <MdLock />,
-    path: "/privacy-policy",
-  },
-  {
-    id: 7,
+    id: 2,
     name: "FOOTER_LINK_TERMS_CONDITION",
     icon: <CgLoadbarDoc />,
     path: "/terms-and-condition",
   },
   {
-    id: 8,
+    id: 3,
+    name: "FOOTER_LINK_PRIVACY_POLICY",
+    icon: <MdLock />,
+    path: "/privacy-policy",
+  },
+  {
+    id: 4,
+    name: "FOOTER_LINK_DISCLAIMER",
+    icon: <GoLaw />,
+    lightIcon: <GoLaw />,
+    path: "/disclaimer",
+  },
+  {
+    id: 5,
     name: "FOOTER_LINK_CONTACT_US",
     icon: <GiBugleCall />,
     lightIcon: <GiBugleCall />,
@@ -91,11 +118,13 @@ const profileSideMenu = [
 ];
 
 // Drawer width for mobile ui
-const drawerWidth = 240;
+const drawerWidth = 245;
+
 
 const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
   // Settings toggler
   const [settingsExpanded, setSettingsExpanded] = React.useState(false);
+  const [settingsExpanded2, setSettingsExpanded2] = React.useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -104,6 +133,9 @@ const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
   // Settings expand toggler
   const handleSettingsExpand = () => {
     setSettingsExpanded(!settingsExpanded);
+  };
+  const handleSettingsExpand2 = () => {
+    setSettingsExpanded2(!settingsExpanded2);
   };
 
   // Click handler
@@ -114,11 +146,21 @@ const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
 
   const drawer = (
     <Box
-      bgcolor={darkMode ? "#0A0407" : "#fff2f8"}
+      bgcolor={darkMode ? "#171c26" : "#fff2f8"}
       sx={{ overflowX: "hidden", height: "100vh" }}
     >
       {/* App Toolbar */}
-      <Toolbar />
+          <Toolbar
+              sx={{
+                  minHeight: 10,
+                  '@media (min-width: 600px)': {
+                      minHeight: "10px"
+                  },
+                   '@media (min-width: 0px)': {
+                      minHeight: "10px"
+                  }
+              }}
+          />
       <List
         sx={{
           display: "flex",
@@ -135,7 +177,7 @@ const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
           }}
         >
           {location.pathname ===
-          `/trending-sellers${location.pathname.slice(17)}` ? (
+          `/trending-nfts${location.pathname.slice(17)}` ? (
             <div
               style={{
                 background:
@@ -149,20 +191,61 @@ const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
           ) : null}
           <IconButton
             sx={{ display: "flex", alignItems: "center", gap: 2, pl: 2 }}
-            onClick={() => handleReRouting("/trending-sellers")}
+            onClick={() => handleReRouting("/trending-nfts?type=all")}
           >
-            {location.pathname === "/trending-sellers" ? (
+            {location.pathname === "/trending-nfts" ? (
               <Typography component="span" color="#ffffff">
-                <BsFillStarFill />
+                <BsLightningFill />
               </Typography>
             ) : (
               <Typography component="span" color="secondary">
-                <BsFillStarFill />
+                <BsLightningFill />
               </Typography>
             )}
 
             <Typography color="secondary" variant="body2" component="span">
-              {t("TRENDING_SELLERS")}
+              {t("TRENDING_NFTS")}
+            </Typography>
+          </IconButton>
+        </ListItem>
+        <ListItem
+          disablePadding
+          sx={{
+            my: 1,
+            display: "flex",
+            position: "relative",
+            ml: 3,
+          }}
+        >
+          {location.pathname ===
+          `/trending-nfts${location.pathname.slice(17)}` ? (
+            <div
+              style={{
+                background:
+                  "linear-gradient(91.95deg, #2175D7 1.75%, #5ACDFE 98.13%)",
+                borderRadius: "4px",
+                width: "100%",
+                height: "50px",
+                position: "absolute",
+              }}
+            ></div>
+          ) : null}
+          <IconButton
+            sx={{ display: "flex", alignItems: "center", gap: 2, pl: 2 }}
+            onClick={() => handleReRouting("/trending-nfts?type=all")}
+          >
+            {location.pathname === "/trending-nfts" ? (
+              <Typography component="span" color="#ffffff">
+                <BsLightningFill />
+              </Typography>
+            ) : (
+              <Typography component="span" color="secondary">
+                <BsLightningFill />
+              </Typography>
+            )}
+
+            <Typography color="secondary" variant="body2" component="span">
+              {t("TRENDING_NFTS")}
             </Typography>
           </IconButton>
         </ListItem>
@@ -193,11 +276,11 @@ const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
           >
             {location.pathname === "/trending-creators" ? (
               <Typography component="span" color="#ffffff">
-                <BsLightbulbFill />
+                <IoFlame />
               </Typography>
             ) : (
               <Typography component="span" color="secondary">
-                <BsLightbulbFill />
+                <IoFlame />
               </Typography>
             )}
             <Typography color="secondary" variant="body2" component="span">
@@ -214,7 +297,7 @@ const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
             ml: 3,
           }}
         >
-          {location.pathname === "/favourites" ? (
+          {location.pathname === "/ranking" ? (
             <div
               style={{
                 background:
@@ -228,19 +311,97 @@ const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
           ) : null}
           <IconButton
             sx={{ display: "flex", alignItems: "center", gap: 2, pl: 2 }}
-            onClick={() => handleReRouting("/favourites?type=nft-bookmark")}
+            onClick={() => handleReRouting("/ranking")}
           >
-            {location.pathname === "/favourites" ? (
+            {location.pathname === "/ranking" ? (
               <Typography component="span" color="#ffffff">
-                <BsFillBookmarkFill />
+                <BsTrophyFill />
               </Typography>
             ) : (
               <Typography component="span" color="secondary">
-                <BsFillBookmarkFill />
+                <BsTrophyFill />
               </Typography>
             )}
             <Typography color="secondary" variant="body2" component="span">
-              {t("FAVOURITES")}
+              {t("RANKING")}
+            </Typography>
+          </IconButton>
+        </ListItem>
+        <ListItem
+          disablePadding
+          sx={{
+            my: 1,
+            display: "flex",
+            position: "relative",
+            ml: 3,
+          }}
+        >
+          {location.pathname === "/affiliates" ? (
+            <div
+              style={{
+                background:
+                  "linear-gradient(91.95deg, #2175D7 1.75%, #5ACDFE 98.13%)",
+                borderRadius: "4px",
+                width: "100%",
+                height: "50px",
+                position: "absolute",
+              }}
+            ></div>
+          ) : null}
+          <IconButton
+            sx={{ display: "flex", alignItems: "center", gap: 2, pl: 2 }}
+            onClick={() => handleReRouting("/affiliates")}
+          >
+            {location.pathname === "/affiliates" ? (
+              <Typography component="span" color="#ffffff">
+                <BsCashCoin />
+              </Typography>
+            ) : (
+              <Typography component="span" color="secondary">
+                <BsCashCoin />
+              </Typography>
+            )}
+            <Typography color="secondary" variant="body2" component="span">
+              {t("AFFILIATES")}
+            </Typography>
+          </IconButton>
+        </ListItem>
+        <ListItem
+          disablePadding
+          sx={{
+            my: 1,
+            display: "flex",
+            position: "relative",
+            ml: 3,
+          }}
+        >
+          {location.pathname === "/merchandise" ? (
+            <div
+              style={{
+                background:
+                  "linear-gradient(91.95deg, #2175D7 1.75%, #5ACDFE 98.13%)",
+                borderRadius: "4px",
+                width: "100%",
+                height: "50px",
+                position: "absolute",
+              }}
+            ></div>
+          ) : null}
+          <IconButton
+            sx={{ display: "flex", alignItems: "center", gap: 2, pl: 2 }}
+            onClick={() => handleReRouting("/merchandise")}
+          >
+            {location.pathname === "/merchandise" ? (
+              <Typography component="span" color="#ffffff">
+                <BsBasket2Fill />
+              </Typography>
+            ) : (
+              <Typography component="span" color="secondary">
+                <BsBasket2Fill />
+              </Typography>
+            )}
+            <Typography color="secondary" variant="body2" component="span">
+              {t("MERCHANDISE")}
             </Typography>
           </IconButton>
         </ListItem>
@@ -345,16 +506,117 @@ const SideDrawer = ({ darkMode, mobileOpen, handleDrawerToggle }) => {
             ))}
           </>
         )}
+        <ListItem
+          disablePadding
+          sx={{
+            my: 1,
+            display: "flex",
+            position: "relative",
+            ml: 3,
+          }}
+        >
+          {location.pathname === `/` ? (
+            <div
+              style={{
+                background:
+                  "linear-gradient(91.95deg, #2175D7 1.75%, #5ACDFE 98.13%)",
+                borderRadius: "4px",
+                width: "100%",
+                height: "50px",
+                position: "absolute",
+              }}
+            ></div>
+          ) : null}
+          <IconButton
+            sx={{ display: "flex", alignItems: "center", gap: 2, pl: 2 }}
+            onClick={handleSettingsExpand2}
+          >
+            {location.pathname === `/` ? (
+              <Typography component="span" color="#ffffff">
+                <BsInfoCircle />
+              </Typography>
+            ) : (
+              <Typography component="span" color="secondary">
+                <BsInfoCircle />
+              </Typography>
+            )}
+            <Typography
+              color="secondary"
+              variant="body2"
+              component="span"
+              sx={{ display: "flex", alignItems: "center", gap: 2 }}
+            >
+              {t("INFO")}
+              {settingsExpanded2 ? (
+                <Typography component="span" color="secondary">
+                  <BsChevronDown />
+                </Typography>
+              ) : (
+                <Typography component="span" color="secondary">
+                  <BsChevronUp />
+                </Typography>
+              )}
+            </Typography>
+          </IconButton>
+        </ListItem>
+        {settingsExpanded2 && (
+          <>
+            {profileSideMenu2.map((pfs) => (
+              <ListItem
+                disablePadding
+                sx={{
+                  ml: 9,
+                  mt: 2,
+                }}
+                key={pfs.id}
+              >
+                {location.pathname === pfs.path ? (
+                  <div
+                    style={{
+                      background:
+                        "linear-gradient(91.95deg, #2175D7 1.75%, #5ACDFE 98.13%)",
+                      borderRadius: "4px",
+                      width: "100%",
+                      height: "50px",
+                      position: "absolute",
+                    }}
+                  ></div>
+                ) : null}
+                <IconButton
+                  onClick={() => handleReRouting(`${pfs.path}`)}
+                  sx={{ display: "flex", alignItems: "center", gap: 3 }}
+                >
+                  {location.pathname === pfs.path ? (
+                    <Typography component="span" color="#ffffff">
+                      {pfs.icon}
+                    </Typography>
+                  ) : (
+                    <Typography component="span" color="secondary">
+                      {pfs.icon}
+                    </Typography>
+                  )}
+                  <Typography
+                    variant="body2"
+                    color="secondary"
+                    sx={{ fontSize: "11px" }}
+                  >
+                    {t(`${pfs.name}`)}
+                  </Typography>
+                </IconButton>
+              </ListItem>
+            ))}
+          </>
+        )}
       </List>
       <Box sx={{ px: 2, mt: 17 }}>
         {!settingsExpanded && (
           <>
             {darkMode ? (
-              <img src={SideFooterLogoDark} alt="Side Footer Main Minto Logo" />
+              <img src={SideFooterLogoDark} alt="GenZers NFT - Marketplace" />
             ) : (
               <img
                 src={SideFooterLogoLight}
-                alt="Side Footer Main Minto Logo"
+                alt="GenZers ART - NFT Marketplace"
               />
             )}
 

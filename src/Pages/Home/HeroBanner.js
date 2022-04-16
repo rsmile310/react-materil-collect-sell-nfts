@@ -38,11 +38,11 @@ const HeroBanner = ({ darkMode, isMobile }) => {
                   width: `${!isMobile ? "60%" : "100%"}`,
                 }}
               >
-                Collect & Sell Your{" "}
+                NFT Art Created by{" "}
                 <span className={heroBannerStyles.heroGradientText}>
-                  Awesome
+                 Generation Z
                 </span>{" "}
-                NFTs
+               
               </Typography>
               {!isMobile ? (
                 <Stack direction="row" alignItems="center" spacing={4} mt={4}>

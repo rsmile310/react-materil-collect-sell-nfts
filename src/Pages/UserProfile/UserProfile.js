@@ -57,7 +57,7 @@ const UserProfile = ({ darkMode }) => {
               alignItems: "center",
               my: 5,
               ml: 2,
-              // zIndex: 1000,
+              //zIndex: 1000,
             }}
           >
             <Typography
@@ -67,6 +67,7 @@ const UserProfile = ({ darkMode }) => {
                 position: "relative",
                 display: "flex",
                 alignItems: "center",
+                 zIndex: 1000,
               }}
             >
               <Typography
@@ -123,10 +124,10 @@ const UserProfile = ({ darkMode }) => {
               spacing={{ xs: 1, md: 4 }}
               columns={{ xs: 1, md: 12 }}
             >
-              <Grid zIndex={10000} item xs={1} md={3.5}>
+              <Grid zIndex={500} item xs={1} md={3.5}>
                 <ProfileSideBar darkMode={darkMode} />
               </Grid>
-              <Grid zIndex={10000} item xs={1} md={8.5}>
+              <Grid zIndex={500} item xs={1} md={8.5}>
                 <Outlet />
               </Grid>
             </Grid>
@@ -137,6 +138,7 @@ const UserProfile = ({ darkMode }) => {
               color: `${darkMode ? "#ffffff" : "#040404"}`,
               overflowY: "hidden",
               position: "relative",
+              zIndex: 500,
             }}
           >
             <Box

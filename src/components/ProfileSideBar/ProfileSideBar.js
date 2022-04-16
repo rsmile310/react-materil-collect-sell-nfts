@@ -10,10 +10,10 @@ import {
 import { Box } from "@mui/system";
 
 // Icons
-import { IoPersonSharp, IoLanguage } from "react-icons/io5";
+import { IoPersonSharp, IoDiamondSharp } from "react-icons/io5";
+import { HiSpeakerphone } from "react-icons/hi";
 import { IoIosSwitch } from "react-icons/io";
-import { AiFillIdcard } from "react-icons/ai";
-
+import { BsFillBookmarkFill, BsChatTextFill } from "react-icons/bs";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -26,18 +26,30 @@ const profileSideMenu = [
   },
   {
     id: 2,
-    name: "SETTINGS_KYC",
-    icon: <AiFillIdcard />,
-    path: "/kyc",
+    name: "SETTINGS_USER_ASSETS",
+    icon: <IoDiamondSharp />,
+    path: "/assets",
   },
   {
     id: 3,
-    name: "SETTINGS_LANGUAGE",
-    icon: <IoLanguage />,
-    path: "/language",
+    name: "SETTINGS_USER_FAVOURITES",
+    icon: <BsFillBookmarkFill />,
+    path: "/favourites?type=nft-bookmark",
   },
   {
     id: 4,
+    name: "SETTINGS_RB",
+    icon: <BsChatTextFill />,
+    path: "/refer-buyers",
+  },
+  {
+    id: 5,
+    name: "SETTINGS_RC",
+    icon: <HiSpeakerphone />,
+    path: "/refer-creators",
+  },
+  {
+    id: 6,
     name: "SETTINGS_THEME",
     icon: <IoIosSwitch />,
     path: "/theme",
@@ -56,14 +68,15 @@ const ProfileSideBar = ({ darkMode }) => {
         color: `${darkMode ? "#ffffff" : "#040404"}`,
         backgroundColor: `${darkMode ? "#040404" : "#ffffff"}`,
         borderRadius: "10px",
+        zIndex: 1000,
       }}
     >
-      <List sx={{ display: "flex", flexDirection: "column", py: 2 }}>
+      <List sx={{ display: "flex", flexDirection: "column", py: 2, zIndex: 1000, }}>
         {profileSideMenu.map((psm) => (
-          <Box key={psm.id}>
+          <Box key={psm.id} sx={{ zIndex: 1000, }}>
             <ListItem
               disablePadding
-              sx={{ pl: 0.5, py: 1.5, position: "relative" }}
+              sx={{ pl: 0.5, py: 1.5, position: "relative", zIndex: 1000, }}
             >
               <ListItemButton
                 sx={
@@ -73,6 +86,7 @@ const ProfileSideBar = ({ darkMode }) => {
                         borderRadius: "4px",
                         background:
                           "linear-gradient(91.95deg, #2175D7 1.75%, #5ACDFE 98.13%)",
+                        zIndex: 1000,
                       }
                     : null
                 }

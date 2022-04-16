@@ -1,7 +1,7 @@
 /* Custom Scrollbar */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
-}
+} */
 
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);

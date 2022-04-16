@@ -30,11 +30,11 @@ i18n
     },
   });
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+  ReactDOM.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
 
-reportWebVitals();
+  reportWebVitals(console.log);

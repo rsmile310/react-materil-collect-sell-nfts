@@ -144,7 +144,7 @@ const SingleAuctionCard = ({ fa, darkMode }) => {
               variant="body2"
               color="secondary"
               lineHeight={2}
-              height={"250px"}
+              //height={"100%"}
               pr={2.5}
               sx={{
                 overflowY: "auto",

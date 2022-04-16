@@ -27,12 +27,19 @@ import AssetProperModal from "../../components/AssetPropertiesModal/AssetProperM
 import { useTranslation } from "react-i18next";
 import { LocalizationProvider, MobileDatePicker } from "@mui/lab";
 import AssetProperModalMobile from "../../components/AssetPropertiesModal/AssetProperModalMobile";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Select, { NonceProvider } from "react-select";
+import Switch from "@mui/material/Switch";
+import makeAnimated from "react-select/animated";
 
-const Input = styled("input")({
-  display: "none",
-});
+import Input from "@mui/material/Input";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
 
-// const propertiesData = { id: Math.random(), color: "black" };
+const animatedComponents = makeAnimated();
 
 const CreateAssets = ({ darkMode }) => {
   const [image, setImage] = useState(null);
@@ -41,7 +48,9 @@ const CreateAssets = ({ darkMode }) => {
 
   const [fixedButtonToggler, setFixedButtonToggler] = useState(true);
   const [openButtonToggler, setOpenButtonToggler] = useState(false);
+  const [newButtonToggler, setNewButtonToggler] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [openPurchase, setOpenPurchase] = useState(false);
 
   const [dateValueFrom, setDateValueFrom] = useState(new Date());
   const [dateValueTo, setDateValueTo] = useState(new Date());
@@ -92,21 +101,149 @@ const CreateAssets = ({ darkMode }) => {
   const handleFixedToggler = () => {
     setFixedButtonToggler(true);
     setOpenButtonToggler(false);
+    setNewButtonToggler(false);
+  };
+  const handleNewToggler = () => {
+    setNewButtonToggler(true);
+    setFixedButtonToggler(false);
+    setOpenButtonToggler(false);
   };
 
   const handleOpenToggler = () => {
     setOpenButtonToggler(true);
     setFixedButtonToggler(false);
+    setNewButtonToggler(false);
+  };
+  const handleSwitchToggler = (event) => {
+    console.log(event.target.checked);
+    event.target.checked ? setOpenPurchase(true) : setOpenPurchase(false);
+    // setOpenButtonToggler(true);
+    // setFixedButtonToggler(false);
+    // setNewButtonToggler(false);
   };
 
   const handleImageUpload = (e) => {
     setImage(URL.createObjectURL(e.target.files[0]));
   };
 
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const SelectStyle = styled(Select)({
+    paddingTop: "8px",
+    "&>div": {
+      fontSize: "14px",
+      border: "1px solid rgb(196, 196, 196)",
+      borderRadius: "6px",
+      padding: "0.4rem 1.5rem",
+      color: `${darkMode ? "#ffffff" : "#121212"}`,
+      backgroundColor: `${darkMode ? "#171c26" : "#ffffff"}`,
+      width: "100%",
+      zIndex: 1000,
+      outlineOffset: "1px",
+      boxShadow: "none !important",
+    },
+    "&>div:hover": {
+      border: "1px solid rgb(196, 196, 196)",
+      boxShadow: "none",
+    },
+    "&:focus": {
+      border: "1px solid rgb(196, 196, 196)",
+      outlineOffset: "0",
+    },
+    "&:active": {
+      borderColor: "rgb(196, 196, 196)",
+    },
+    "&>div>div>div": {
+      backgroundColor: "transparent",
+    },
+    "&>div>div>div>div": {
+      color: "hsl(0, 0%, 50%)",
+    },
+    "&>div>div>div:hover": {
+      backgroundColor: "transparent",
+      opacity: "0.7",
+    },
+    "&>.css-g1d714-ValueContainer": {
+      display: "none",
+    },
+  });
+
+  const IOSSwitch = styled((props) => (
+    <Switch focusVisibleClassName=".Mui-focusVisible" {...props} />
+  ))(({ theme }) => ({
+    width: 42,
+    height: 26,
+    padding: 0,
+    "& .MuiSwitch-switchBase": {
+      padding: 0,
+      margin: 2,
+      transitionDuration: "300ms",
+      "&.Mui-checked": {
+        transform: "translateX(16px)",
+        color: "#fff",
+        "& + .MuiSwitch-track": {
+          backgroundColor:
+            theme.palette.mode === "dark" ? "#2ECA45" : "#B11DCB",
+          opacity: 1,
+          border: 0,
+        },
+        "&.Mui-disabled + .MuiSwitch-track": {
+          opacity: 0.5,
+        },
+      },
+      "&.Mui-focusVisible .MuiSwitch-thumb": {
+        color: "#33cf4d",
+        border: "6px solid #fff",
+      },
+      "&.Mui-disabled .MuiSwitch-thumb": {
+        color:
+          theme.palette.mode === "light"
+            ? theme.palette.grey[100]
+            : theme.palette.grey[600],
+      },
+      "&.Mui-disabled + .MuiSwitch-track": {
+        opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
+      },
+    },
+    "& .MuiSwitch-thumb": {
+      boxSizing: "border-box",
+      width: 22,
+      height: 22,
+    },
+    "& .MuiSwitch-track": {
+      borderRadius: 26 / 2,
+      backgroundColor: theme.palette.mode === "light" ? "#E9E9EA" : "#39393D",
+      opacity: 1,
+      transition: theme.transitions.create(["background-color"], {
+        duration: 500,
+      }),
+    },
+  }));
+
+  const [number, setNumber] = useState("");
+  const [price, setPrice] = useState("");
+
+  const handler = (event) => {
+    const value = event.target.value;
+    const setValue = value <= 50 ? value : 50;
+
+    setNumber(setValue);
+  };
+  const priceHandler = (event) => {
+    console.log("hey");
+    const value = event.target.value;
+    const setValue = value <= 50 ? value : 50;
+
+    setPrice(setValue);
+  };
   return (
     <>
       <Box>
@@ -190,6 +327,14 @@ const CreateAssets = ({ darkMode }) => {
               </Button>
               <Button
                 disableElevation
+                onClick={handleNewToggler}
+                color="blue"
+                variant={newButtonToggler ? "contained" : "outlined"}
+              >
+                {t("NEW_BUTTON")}
+              </Button>
+              <Button
+                disableElevation
                 onClick={handleOpenToggler}
                 color="blue"
                 variant={openButtonToggler ? "contained" : "outlined"}
@@ -224,6 +369,7 @@ const CreateAssets = ({ darkMode }) => {
                           "CREATE_ASSET_PLACEHOLDER_ENTER_NFT_NAME_HERE"
                         )}
                         name="nftName"
+                        id="nftName"
                         required
                         style={{
                           fontSize: "14px",
@@ -255,6 +401,7 @@ const CreateAssets = ({ darkMode }) => {
                           "CREATE_ASSET_PLACEHOLDER_PROVIDE_A_DETAILED_DESCRIPTION_OF_THE_ITEM"
                         )}
                         name="nftDescription"
+                        id="nftDescription"
                         required
                         style={{
                           fontFamily: "Poppins, sans-serif",
@@ -304,13 +451,15 @@ const CreateAssets = ({ darkMode }) => {
                             width: "90%",
                             zIndex: 1000,
                           }}
+                          value={price}
+                          onChange={priceHandler}
                         />
                         <Button
                           disableElevation
                           color="secondary"
                           variant="contained"
                         >
-                          {t("MINTO")}
+                          {t("CURRENCY")}
                         </Button>
                       </Stack>
                     </Stack>
@@ -430,6 +579,7 @@ const CreateAssets = ({ darkMode }) => {
                                 id="icon-button-file-front"
                                 type="file"
                                 onChange={handleImageUpload}
+                                sx={{ display: "none" }}
                               />
                               <IconButton
                                 color="primary"
@@ -624,6 +774,96 @@ const CreateAssets = ({ darkMode }) => {
                       </Stack>
                     ) : null}
                   </Box>
+
+                  <Box sx={{ mt: 5 }}>
+                    <SelectStyle
+                      className={darkMode ? "inputField" : null}
+                      components={animatedComponents}
+                      isMulti
+                      options={options}
+                    />
+                  </Box>
+                  <Box sx={{ mt: 3 }}>
+                    <FormControlLabel
+                      control={
+                        <IOSSwitch
+                          sx={{ m: 1 }}
+                          checked={openPurchase}
+                          onChange={() => setOpenPurchase(!openPurchase)}
+                        />
+                      }
+                      label="Unlock once purchased"
+                      color="secondary"
+                      style={{ color: `${darkMode ? "#ffffff" : "#171c26"}` }}
+                    />
+                    <Box>
+                      <input
+                        className={darkMode ? "inputField" : null}
+                        type="text"
+                        placeholder="Digital key, code to redeem or link to a file..."
+                        name="purchase"
+                        id="purchase"
+                        required
+                        style={{
+                          display: `${openPurchase ? "block" : "none"}`,
+                          fontSize: "14px",
+                          border: "1px solid #c4c4c4",
+                          borderRadius: "6px",
+                          padding: "1rem 1.5rem",
+                          color: `${darkMode ? "#ffffff" : "#121212"}`,
+                          backgroundColor: `${
+                            darkMode ? "#171c26" : "#ffffff"
+                          }`,
+                          width: "90%",
+                          zIndex: 1000,
+                        }}
+                      />
+                    </Box>
+                  </Box>
+                  <Box>
+                    <FormControl
+                      sx={{
+                        marginTop: "6px",
+                        width: "238px",
+                        "& label,& input": {
+                          fontSize: "1rem",
+                          color: `${
+                            darkMode ? "#ffffff" : "#121212"
+                          } !important`,
+                        },
+                        "& p": {
+                          fontSize: "14px",
+                          color: `${darkMode ? "#ffffff" : "#121212"}`,
+                          opacity: "0.6",
+                        },
+                        "&>div:before": {
+                          borderBottom: `1px solid ${
+                            darkMode ? "#ffffff" : "#121212"
+                          } !important`,
+                        },
+                        "&>div:after": {
+                          borderBottom: `2px solid ${
+                            darkMode ? "#ffffff" : "#121212"
+                          }`,
+                        },
+                      }}
+                    >
+                      <InputLabel htmlFor="royaltiesPercent">
+                        Royalties
+                      </InputLabel>
+                      <Input
+                        onChange={handler}
+                        value={number}
+                        endAdornment={
+                          <InputAdornment position="end">%</InputAdornment>
+                        }
+                        aria-describedby="royaltiesPercent-helper-text"
+                      />
+                      <FormHelperText id="royaltiesPercent-text">
+                        Suggested: Maximum is 50%
+                      </FormHelperText>
+                    </FormControl>
+                  </Box>
                 </Grid>
               </Grid>
               <GradientButtonPrimary
@@ -702,6 +942,14 @@ const CreateAssets = ({ darkMode }) => {
               </Button>
               <Button
                 disableElevation
+                onClick={handleNewToggler}
+                color="blue"
+                variant={newButtonToggler ? "contained" : "outlined"}
+              >
+                {t("NEW_BUTTON")}
+              </Button>
+              <Button
+                disableElevation
                 onClick={handleOpenToggler}
                 color="blue"
                 variant={openButtonToggler ? "contained" : "outlined"}
@@ -739,6 +987,7 @@ const CreateAssets = ({ darkMode }) => {
                         id="icon-button-file-front"
                         type="file"
                         onChange={handleImageUpload}
+                        sx={{ display: "none" }}
                       />
                       <IconButton
                         color="primary"
@@ -780,6 +1029,49 @@ const CreateAssets = ({ darkMode }) => {
                     />
                   </Box>
                 )}
+              </Box>
+              <Box sx={{ mt: 3 }}>
+                <SelectStyle
+                  className={darkMode ? "inputField" : null}
+                  components={animatedComponents}
+                  isMulti
+                  options={options}
+                />
+                <Box sx={{ mt: 3 }}>
+                  <FormControlLabel
+                    control={
+                      <IOSSwitch
+                        sx={{ m: 1 }}
+                        checked={openPurchase}
+                        onChange={() => setOpenPurchase(!openPurchase)}
+                      />
+                    }
+                    label="Unlock once purchased"
+                    color="secondary"
+                    style={{ color: `${darkMode ? "#ffffff" : "#171c26"}` }}
+                  />
+                  <Box>
+                    <input
+                      className={darkMode ? "inputField" : null}
+                      type="text"
+                      placeholder="Digital key, code to redeem or link to a file..."
+                      name="purchase"
+                      id="purchase"
+                      required
+                      style={{
+                        display: `${openPurchase ? "block" : "none"}`,
+                        fontSize: "14px",
+                        border: "1px solid #c4c4c4",
+                        borderRadius: "6px",
+                        padding: "1rem 1.5rem",
+                        color: `${darkMode ? "#ffffff" : "#121212"}`,
+                        backgroundColor: `${darkMode ? "#171c26" : "#ffffff"}`,
+                        width: "90%",
+                        zIndex: 1000,
+                      }}
+                    />
+                  </Box>
+                </Box>
               </Box>
               <Stack direction="column" spacing={2} sx={{ mt: 3 }}>
                 <label
@@ -865,13 +1157,15 @@ const CreateAssets = ({ darkMode }) => {
                       backgroundColor: `${darkMode ? "#040404" : "#ffffff"}`,
                       width: "90%",
                     }}
+                    value={price}
+                    onChange={priceHandler}
                   />
                   <Button
                     disableElevation
                     color="secondary"
                     variant="contained"
                   >
-                    {t("MINTO")}
+                    {t("CURRENCY")}
                   </Button>
                 </Stack>
               </Stack>
@@ -985,6 +1279,7 @@ const CreateAssets = ({ darkMode }) => {
                   </Box>
                 </Stack>
               ) : null}
+
               <Box>
                 <Stack
                   direction="row"

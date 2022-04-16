@@ -11,8 +11,8 @@ import {
 import { Box } from "@mui/system";
 
 // Main logo
-import MainLogo from "../../assets/mainLogo.svg";
-import MainLogoLight from "../../assets/mainLogoLight.svg";
+import MainLogo from "../../assets/genzers-mainLogo-test2.png";
+import MainLogoLight from "../../assets/genzers-mainLogo-test2.png";
 
 // Icons
 import { RiTwitterFill, RiInstagramLine } from "react-icons/ri";
@@ -35,7 +35,7 @@ const Footer = ({ darkMode }) => {
             {darkMode ? (
               <img src={MainLogo} alt="Minto" />
             ) : (
-              <img src={MainLogoLight} alt="Minto" />
+              <img src={MainLogoLight} alt="GenZers NFT Marketplace" />
             )}
           </Box>
           <Box sx={{ my: 2 }}>
@@ -71,33 +71,69 @@ const Footer = ({ darkMode }) => {
           <Box zIndex={1000}>
             <Typography
               color="secondary"
-              sx={{ mb: 1, fontWeight: 700 }}
-              variant="subtitle1"
-              component="h4"
+               sx={{ mb: 1, fontWeight: 700 }}
+               variant="subtitle1"
+               component="h4"
             >
-              {t("FOOTER_TITLE_MARKETPLACE")}
+             {t("FOOTER_TITLE_MARKETPLACE")}
             </Typography>
             <List sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               <ListItem disablePadding>
                 <Link
                   style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
                   to="/explore?type=all"
+                 >
+                {t("FOOTER_LINK_EXPLORE")}
+                </Link>
+              </ListItem>
+            <ListItem disablePadding>
+              <Link
+              style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
+              to="/create-asset"
+              >
+               {t("FOOTER_LINK_CREATE")}
+              </Link>
+            </ListItem>
+            <ListItem disablePadding>
+              <Link
+                style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
+                to="/login"
+              >
+               {t("FOOTER_LINK_LOGIN")}
+              </Link>
+            </ListItem>
+            <ListItem disablePadding>
+              <Link
+                style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
+                to="/register"
+              >
+               {t("FOOTER_LINK_REGISTER")}
+              </Link>
+            </ListItem>
+            </List>
+          </Box>
+          <Box zIndex={1000}>
+            <Typography
+              color="secondary"
+              sx={{ mb: 1, fontWeight: 700 }}
+              variant="subtitle1"
+              component="h4"
+            >
+              {t("FOOTER_TITLE_COMMUNITY")}
+            </Typography>
+            <List sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <ListItem disablePadding>
+                <Link
+                  style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
+                   to="/trending-creators"
                 >
-                  {t("FOOTER_LINK_EXPLORE")}
+                 {t("FOOTER_LINK_CREATORS")}
                 </Link>
               </ListItem>
               <ListItem disablePadding>
                 <Link
                   style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
-                  to="/create-asset"
-                >
-                  {t("FOOTER_LINK_CREATE")}
-                </Link>
-              </ListItem>
-              <ListItem disablePadding>
-                <Link
-                  style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
-                  to="/trending-sellers"
+                   to="/trending-sellers"
                 >
                   {t("FOOTER_LINK_SELLERS")}
                 </Link>
@@ -105,9 +141,17 @@ const Footer = ({ darkMode }) => {
               <ListItem disablePadding>
                 <Link
                   style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
-                  to="/trending-creators"
+                  to="/affiliates"
                 >
-                  {t("FOOTER_LINK_CREATORS")}
+                  {t("FOOTER_LINK_AFFILIATES")}
+                </Link>
+              </ListItem>
+              <ListItem disablePadding>
+                <Link
+                  style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
+                   to="/frequently-asked-questions"
+                >
+                  {t("FOOTER_LINK_FAQS")}
                 </Link>
               </ListItem>
             </List>
@@ -125,14 +169,6 @@ const Footer = ({ darkMode }) => {
               <ListItem disablePadding>
                 <Link
                   style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
-                  to="/privacy-policy"
-                >
-                  {t("FOOTER_LINK_PRIVACY_POLICY")}
-                </Link>
-              </ListItem>
-              <ListItem disablePadding>
-                <Link
-                  style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
                   to="/terms-and-condition"
                 >
                   {t("FOOTER_LINK_TERMS_CONDITION")}
@@ -141,9 +177,17 @@ const Footer = ({ darkMode }) => {
               <ListItem disablePadding>
                 <Link
                   style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
-                  to="/frequently-asked-questions"
+                  to="/privacy-policy"
                 >
-                  {t("FOOTER_LINK_FAQS")}
+                  {t("FOOTER_LINK_PRIVACY_POLICY")}
+                </Link>
+              </ListItem>
+              <ListItem disablePadding>
+                <Link
+                  style={darkMode ? { color: "#ffffff" } : { color: "#171c26" }}
+                  to="/disclaimer"
+                >
+                  {t("FOOTER_LINK_DISCLAIMER")}
                 </Link>
               </ListItem>
               <ListItem disablePadding>

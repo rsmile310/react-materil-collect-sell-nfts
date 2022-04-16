@@ -104,3 +104,17 @@ a {
   outline: none;
   border: 1px solid #e552ff !important;
 }
+.css-m3rafj-MuiContainer-root {
+  margin-right: 0px!important;
+}
+@media (min-width: 600px) {
+.css-m3rafj-MuiContainer-root {
+  padding-left: 35px!important;
+  padding-right: 0px!important;
+  }
+}
+@media (min-width: 1220px) {
+  .css-m3rafj-MuiContainer-root {
+    padding-left: 20px!important;
+    }
+  }

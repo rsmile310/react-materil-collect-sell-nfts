@@ -19,12 +19,13 @@ import {
 
 import ConnectWalletPopUp from "../ConnectWalletPopUp/ConnectWalletPopUp";
 
+
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@emotion/react";
 
 // Icons
-import { BsTwitch } from "react-icons/bs";
+import { BsHouseFill } from "react-icons/bs";
 import { HiCubeTransparent } from "react-icons/hi";
 import { MdGavel } from "react-icons/md";
 import { MdAddToPhotos } from "react-icons/md";
@@ -36,11 +37,34 @@ import { TiCancel } from "react-icons/ti";
 import MetaMaskIcon from "../../assets/Icons/darkUIIcons/metaMaskIcon.svg";
 import MobileNavigation from "./MobileNavigation";
 
+//MDB
+import * as Realm from "realm-web";
+
+const APP_ID = "data-qewhf";
+const app = new Realm.App({id: APP_ID});
+const DATABASE_NAME = "dbdev";
+const COLLECTION_NAME = "_User";
+const CLUSTER = "GDB1";
+
+
 const Navigation = ({ darkMode }) => {
+  
+  //CWP
+  const query = new URLSearchParams(useLocation().search);
+  const r = query.get("r") || "55732";
+  const a = query.get("a") || "48947";
+  const [user, setUser] = React.useState(app.currentUser);
+  const [currentUser, setCurrentUser] = React.useState(app.currentUser);
   const [walletAddress, setWalletAddress] = useState("");
+  const { state } = useLocation();
+  
+  //####
+  
+  //const wAddress = window.WID;
   const [openModal, setOpenModal] = React.useState(false);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -52,6 +76,7 @@ const Navigation = ({ darkMode }) => {
   const handleClickTrigger = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  
   const handleCloseMenu = () => {
     setAnchorEl(null);
   };
@@ -62,22 +87,56 @@ const Navigation = ({ darkMode }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleConnectWallet = async () => {
+  
+  
+  const handleConnectWallet = async() => {
     handleCloseModal();
+    
     if (typeof window.ethereum !== "undefined") {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
       setWalletAddress(accounts[0]);
-    }
+      const walletAddress = (accounts[0]);
+      console.log("walletAddress:", walletAddress);
+      
+      window.WID = walletAddress;
+      //console.log(window.WID);
+      navigate(state?.path || "/home");
+      const credentials = Realm.Credentials.function({
+      "walletAddress": walletAddress,
+      "r": r,
+      "a": a,
+      });
+      try {
+    
+        const user = await app.logIn(credentials);
+        console.assert(user.id === app.currentUser.id);
+        setCurrentUser(app.currentUser);
+        setUser(user);
+        localStorage.setItem('user', user)
+        console.log("user.id:", user.id);
+        console.log("user:", user);
+    
+      } catch (err) {
+        console.error("Failed to log in", err);
+      }
+    } else {console.log('Please install MetaMask!');};
+    
   };
+    
+  
 
-  const handleDisconnectWallet = () => {
+  const handleDisconnectWallet = async() => {
+    
+    //const wAddress = (window.WID);
     if (walletAddress) {
-      window.location.reload();
+        await app.currentUser.logOut();
+        console.log("logged out");
+        window.location.reload();
     }
   };
-
+  
   return (
     <div
       style={{
@@ -92,7 +151,7 @@ const Navigation = ({ darkMode }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            zIndex: 300000,
+            zIndex: 2000,
             position: "fixed",
             top: "0%",
             backgroundColor: `${darkMode ? "#040404" : "#ffffff"}`,
@@ -115,7 +174,7 @@ const Navigation = ({ darkMode }) => {
                 color="secondary"
               >
                 <Typography color="secondary" component="span" mt={1}>
-                  <BsTwitch />
+                  <BsHouseFill />
                 </Typography>
                 <Typography
                   sx={
@@ -223,7 +282,7 @@ const Navigation = ({ darkMode }) => {
                 aria-controls={openMenu ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={openMenu ? "true" : undefined}
-                onClick={handleClickTrigger}
+                onClick={ handleClickTrigger }
                 sx={{
                   display: "flex",
                   justifyContent: "center",

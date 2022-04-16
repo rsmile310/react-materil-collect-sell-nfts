@@ -1,7 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { BsTwitch } from "react-icons/bs";
+import { BsHouseFill } from "react-icons/bs";
 import { FaWallet } from "react-icons/fa";
 import { HiCubeTransparent } from "react-icons/hi";
 import { MdAddToPhotos, MdGavel } from "react-icons/md";
@@ -29,7 +29,7 @@ const MobileNavigation = ({
           width: "100%",
           zIndex: 30000,
           bottom: 0,
-          backgroundColor: `${darkMode ? "#040404" : "#fff2f8"}`,
+          backgroundColor: `${darkMode ? "#171c26" : "#fff2f8"}`,
           left: 0,
         }}
       >
@@ -62,7 +62,7 @@ const MobileNavigation = ({
                 color="secondary"
               >
                 <Typography color="secondary" component="span">
-                  <BsTwitch />
+                  <BsHouseFill />
                 </Typography>
                 <Typography
                   component="p"
